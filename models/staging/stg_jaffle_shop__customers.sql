@@ -5,4 +5,4 @@
         first_name,
         last_name
 
-    from jaffle_shop.customers
+from {{ source('dbt_fundamentals', 'customers') }}

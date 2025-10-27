@@ -25,6 +25,16 @@ customer_orders as (
     customer_id
 ),
 
+salesTotal as (
+    SELECT 
+    sum(AMOUNT) as TotalSales,
+    customer_id
+    FROM {{ ref('stg_raw_stripe_payment') }} p
+    JOIN {{ ref('stg_jaffle_shop__orders') }} o
+    ON p.ORDERID = o.order_id   
+    GROUP BY customer_id
+),
+
 
 final as (
 
@@ -34,11 +44,13 @@ final as (
         c.last_name,
         co.first_order_date,
         co.most_recent_order_date,
+        T.TotalSales,   
         coalesce(co.number_of_orders, 0) as number_of_orders
 
     from customers c 
 
     left join customer_orders co on c.customer_id = co.customer_id
+    left join salesTotal T on T.customer_id = c.customer_id
 
 )
 

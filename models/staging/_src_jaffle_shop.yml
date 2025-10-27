@@ -1,0 +1,10 @@
+sources:
+  - name: dbt_fundamentals
+    schema: jaffle_shop  
+    tables:
+      - name: orders
+      - name: customers
+
+  - name: stripe
+    tables:
+      - name: payments

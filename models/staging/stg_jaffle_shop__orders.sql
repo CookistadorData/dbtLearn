@@ -4,4 +4,4 @@
         ORDER_DATE,
         STATUS
 
-    from jaffle_shop.orders
+    from {{ source('dbt_fundamentals', 'orders') }}
