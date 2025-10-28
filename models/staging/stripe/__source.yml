@@ -1,0 +1,6 @@
+sources:
+  - name: stripe
+    schema: raw
+    tables:
+      - name: stripe_payments
+
