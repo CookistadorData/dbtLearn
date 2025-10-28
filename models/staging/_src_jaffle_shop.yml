@@ -5,6 +5,7 @@ sources:
       - name: orders
       - name: customers
 
-  - name: stripe
+  - name: stripe_data
+    schema: raw
     tables:
-      - name: payments
+      - name: stripe_payments
