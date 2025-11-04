@@ -1,0 +1,24 @@
+exposures:
+  - name: orders_data
+    label: order_data
+    type: notebook
+    maturity: high
+    url: https://app.powerbi.com/groups/ab4bcbc1-1bf9-490b-982e-73068866b06e/warehouses/87bbe093-fa8e-4299-8782-ec2c5d293121?experience=power-bi&selectedNodePath=87bbe093-fa8e-4299-8782-ec2c5d293121%2FDatawarehouse%2FSchemasFolder%2Fjaffle_shop%2FTables%2Forders&selectedNodeDisplayValue=orders
+    description: description
+    owner:
+      email: test@test.com
+      name: Dom McData
+    depends_on:
+      - ref('fct_customer_orders')
+  
+  - name: Customers_data
+    label: Customers_data
+    type: notebook
+    maturity: high
+    url: https://tinyurl.com/jaffle-shop-reporting
+    description: 'Exposure for customer metrics'
+    depends_on:
+      - ref('dim_customers')
+    owner: 
+      name: Data Startrek
+      email: operations_manager@enterprise.com
